@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="tritis.css">
+	<title>Tritis</title>
+	<meta charset="UTF-8">
+	<script id="vertex-shader" type="x-shader/x-vertex">
+		attribute  vec4 vPosition;
+		attribute  vec2 vTexCoord;
+
+		varying vec2 fTexCoord;
+
+		uniform mat4 projection;
+		uniform mat4 modelview;
+
+		void main() 
+		{
+		    fTexCoord = vTexCoord;
+		    gl_Position = projection * modelview * vPosition;
+		} 
+	</script>
+
+	<script id="fragment-shader" type="x-shader/x-fragment">
+		precision mediump float;
+
+		varying vec2 fTexCoord;
+		      
+		uniform sampler2D texture;
+		      
+		void main(void) 
+		{
+		   	gl_FragColor = texture2D(texture, fTexCoord);
+		}
+	</script>
+
+
+
+<body class="container">
+	<div class="controls">
+		<div class="rotations" style="display: inline-block">
+			<h4>Rotations</h4>
+			<div class="info">
+				<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+					X
+				</div>
+				<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+					Y
+				</div>
+				<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+					Z
+				</div>
+			</div>
+			<div style="padding-bottom: 3px">
+				<button type="button" class="btn btn-default" disabled="disabled">A</button>
+				<button type="button" class="btn btn-default" disabled="disabled">S</button>
+				<button type="button" class="btn btn-default" disabled="disabled">D</button>
+			</div>
+			<div>
+				<button type="button" class="btn btn-default" disabled="disabled">Z</button>
+				<button type="button" class="btn btn-default" disabled="disabled">X</button>
+				<button type="button" class="btn btn-default" disabled="disabled">C</button>
+			</div>
+		</div>
+		<div class="arrows" style="display: inline-block">
+			<h4>Move cubes around</h4>
+			<div class="info"></div>
+			<div style="padding-bottom:3px">
+				<button type="button" class="btn btn-default" disabled="disabled"><i class="fa fa-arrow-up"></i></button>
+			</div>
+			<div>
+				<button type="button" class="btn btn-default" disabled="disabled"><i class="fa fa-arrow-left"></i></button>
+				<button type="button" class="btn btn-default" disabled="disabled"><i class="fa fa-arrow-down"></i></button>
+				<button type="button" class="btn btn-default" disabled="disabled"><i class="fa fa-arrow-right"></i></button>
+			</div>
+		</div>
+		<div class="drop" style="display:inline-block">
+			<h4>Drop cube</h4>
+			<div class="info"></div>
+			<div style="padding-top: 18px">
+				<button type="button" class="btn btn-default" disabled="disabled">Space Bar</button>
+			</div>
+		</div>
+
+		<div style="display:inline-block">
+			<h4>Other controls</h4>
+			<div class="info"></div>
+			<div class="other-controls s1" style="display:inline-block">
+				<div class="col-md-12 col-lg-12">
+					<div style="padding-bottom:5px">
+						<span>Reset: </span>
+						<button type="button" class="btn btn-default" disabled="disabled">R</button>
+					</div>
+					<div>
+						<span>Mute: </span>
+						<button type="button" class="btn btn-default" disabled="disabled">M</button>
+					</div>
+				</div>
+			</div>
+			<div class="other-controls s2" style="display:inline-block">
+				<div class="col-md-12 col-lg-12">
+					<div style="padding-bottom:5px">
+						<span>Toggle game mode: </span>
+						<button type="button" class="btn btn-default" disabled="disabled">G</button>
+					</div>
+					<div>
+						<span>Toggle next cube: </span>
+						<button type="button" class="btn btn-default" disabled="disabled">T</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="cold-md-12 col-lg-12 canvas-container">
+			<canvas id="gl-canvas" width="712" height="512">
+	      		Oops ... your browser doesn't support the HTML5 canvas element
+			</canvas>
+		</div>
+	</div>
+	<div class="row">
+		<h3 class="col-md-12 col-lg-12" id="score"></h3>	
+	</div>
+
+
+	<script type="text/javascript" src="/Common/webgl-utils.js"></script>
+	<script type="text/javascript" src="/Common/InitShaders.js"></script>
+	<script type="text/javascript" src="/Common/MV.js"></script>
+
+	<script src="globals.js"></script>
+	<script src="audioManager.js"></script>
+	<script src="Map.js"></script>
+	<script src="keys.js"></script>
+	<script src="handleMouse.js"></script>
+	<script src="LIINE.js"></script>
+	<script src="CROOK.js"></script>
+	<script src="imagesPreload.js"></script>
+
+
+	<script type="text/javascript" src="Trist1.js"></script>
+</body>
+</html>

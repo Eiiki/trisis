@@ -1,0 +1,49 @@
+html, body{
+	color:white;
+	background-color: #2A2A2A;
+}
+.canvas-container{
+	width: 100%;
+}
+canvas{
+	margin-left:auto;
+	margin-right: auto;
+	display: block;
+}
+#score{
+	text-align: center;
+}
+
+.controls{
+	text-align: center;
+	padding-bottom: 10px;
+}
+.controls .info{
+	height:20px;
+}
+.drop, .arrows, .rotations{
+	vertical-align: top;
+	padding:0 5px;
+}
+.rotations button{
+	width:38px;
+}
+.other-controls{
+	vertical-align: bottom;
+}
+.other-controls.s1{
+	margin-left: 20px;
+}
+.other-controls button{
+	width:40px;
+}
+.other-controls span{
+	text-align: left;
+	display: inline-block;
+}
+.other-controls.s1 span{
+	width:40px;
+}
+.other-controls.s2 span{
+	width:130px;
+}
